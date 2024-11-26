@@ -1,4 +1,4 @@
-﻿jQuery(window).on( 'load', function($){
+﻿(function(){
 	var $ = jQuery;
 
 	window['loading_page_collapse_expand_video_tutorial'] = function(e){
@@ -14,7 +14,6 @@
 		$('.lp-video-tutorial')[a]('lp-video-collapsed');
 	};
 
-    // Main application
     window['loading_page_selected_image'] = function(fieldName){
         var img_field = $('input[name="'+fieldName+'"]');
         var media = wp.media({
@@ -56,10 +55,38 @@
 		}
 	);
 
-    $(function(){
-        lp_ls_setColorPicker("#lp_backgroundColor", "#lp_backgroundColor_picker");
-        lp_ls_setColorPicker("#lp_foregroundColor", "#lp_foregroundColor_picker");
-    });
+	$( document ).on(
+		'change',
+		'[name="lp_backgroundTransparencyPercentage"]',
+		function( evt, mssg ){
+			let v = this.value;
+			$('#lp_backgroundTransparencyPercentageCaption').text( '(' + v + '%)' );
+		}
+	);
 
-	$( '[name="lp_loading_screen"]' ).trigger( 'change', [ false ] );
-});
+    $( document ).on(
+		'change',
+		'[name="lp_backgroundTransparency"]',
+		function(){
+			let f = $( '[name="lp_backgroundTransparencyPercentage"],#lp_backgroundTransparencyPercentageCaption' );
+			if ( this.checked ) {
+				f.css('visibility', 'visible');
+			} else {
+				f.css('visibility', 'hidden');
+			}
+		}
+	);
+
+	// Document ready.
+	$(function(){
+		$( '[name="lp_backgroundTransparencyPercentage"]' ).trigger( 'change' );
+		$( '[name="lp_backgroundTransparency"]' ).trigger( 'change' );
+	});
+
+	// Window Load.
+	$(window).on( 'load', function(){
+		lp_ls_setColorPicker("#lp_backgroundColor", "#lp_backgroundColor_picker");
+		lp_ls_setColorPicker("#lp_foregroundColor", "#lp_foregroundColor_picker");
+		$( '[name="lp_loading_screen"]' ).trigger( 'change', [ false ] );
+	});
+})();
