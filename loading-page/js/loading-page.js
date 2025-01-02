@@ -179,6 +179,7 @@ var cp_loadingpage = cp_loadingpage || {};
 
     lp['displayScreen'] = function()
     {
+		if ( jQuery('.lp-screen:visible').length ) return;
         jQuery(document).trigger('loadingScreenShow');
 		if(lp.options['closeBtn'])
 		{

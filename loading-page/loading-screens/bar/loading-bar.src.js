@@ -81,7 +81,7 @@ cp_loadingpage.graphics['bar'] = {
 	complete : function(callback){
 		callback();
 		var me = this;
-		this.attr['overlay'].fadeOut(1500, function () {
+		this.attr['overlay'].fadeOut(1000, function () {
 			me.attr['overlay'].remove();
 		});
 	}

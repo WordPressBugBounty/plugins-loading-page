@@ -19,6 +19,7 @@ jQuery(
 			} catch( err ) {}
 
 			try {
+				if ( $('.lp-screen:visible').length ) return;
 				cp_loadingpage.displayScreen();
 				$('body').addClass('lp_loading_screen_body');
 				if (
