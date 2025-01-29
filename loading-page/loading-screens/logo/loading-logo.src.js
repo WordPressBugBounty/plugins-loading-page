@@ -72,10 +72,13 @@ cp_loadingpage.graphics['logo'] = {
 
                 this.blink = (typeof opt[ 'lp_ls' ][ 'logo' ][ 'blink' ] == 'undefined' || opt[ 'lp_ls' ][ 'logo' ][ 'blink' ]*1);
 
-				var me 	= this,
+				var logo_height = ( 'height' in opt[ 'lp_ls' ][ 'logo' ] &&  ! isNaN( opt[ 'lp_ls' ][ 'logo' ][ 'height' ] * 1 ) && opt[ 'lp_ls' ][ 'logo' ][ 'height' ] * 1 ? 'height:'+ opt[ 'lp_ls' ][ 'logo' ][ 'height' ] + 'px;' : ''),
+					logo_width = 'width:' + ( 'width' in opt[ 'lp_ls' ][ 'logo' ] &&  ! isNaN( opt[ 'lp_ls' ][ 'logo' ][ 'width' ] * 1 ) && opt[ 'lp_ls' ][ 'logo' ][ 'width' ] * 1 ? opt[ 'lp_ls' ][ 'logo' ][ 'width' ] : 120) + 'px;'
+					me 	= this,
 					wrapper = jQuery('<span style="width:120px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);display: inline-block;" class="lp-logo-wrapper"></span>'),
 					img_url = String( opt[ 'lp_ls' ][ 'logo' ][ 'image' ] ).trim(),
-					img = jQuery('<img id="lp_ls_img" src="'+img_url+'"  alt="" style="cursor:pointer;width:120px;'+(this.grayscale ? '-webkit-filter:grayscale(100%);filter:grayscale(100%);' : '')+'" class="'+(this.blink ? 'lp_blink' : '')+'" />');
+					img = jQuery('<img id="lp_ls_img" src="'+img_url+'"  alt="" style="cursor:pointer;margin-left:50% !important;transform:translateX(-50%) !important;max-width:initial;'+logo_width+logo_height+(this.grayscale ? '-webkit-filter:grayscale(100%);filter:grayscale(100%);' : '')+'" class="'+(this.blink ? 'lp_blink' : '')+'" />');
+
 				img.on('click',cp_loadingpage.destroyLoader);
 				wrapper.append(img).appendTo( me.attr[ 'overlay' ] );
 				if(me.attr[ 'text' ])

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: loading-page\n"
-"POT-Creation-Date: 2024-11-26 22:53+0100\n"
-"PO-Revision-Date: 2024-11-26 22:53+0100\n"
+"POT-Creation-Date: 2025-01-29 23:10+0100\n"
+"PO-Revision-Date: 2025-01-29 23:10+0100\n"
 "Last-Translator: CodePeople\n"
 "Language-Team: CodePeople\n"
 "Language: en_US\n"
@@ -133,7 +133,7 @@ msgstr ""
 msgid "Lesser Than"
 msgstr ""
 
-#: loading-page.php:889
+#: loading-page.php:889 loading-screens/logo/adminsection.php:111
 msgid "Width"
 msgstr ""
 
@@ -515,24 +515,32 @@ msgstr ""
 msgid "Select the logo image (or any other image)"
 msgstr ""
 
-#: loading-screens/logo/adminsection.php:26
+#: loading-screens/logo/adminsection.php:36
 msgid "Logo image"
 msgstr ""
 
-#: loading-screens/logo/adminsection.php:28
+#: loading-screens/logo/adminsection.php:38
 msgid "Browse"
 msgstr ""
 
-#: loading-screens/logo/adminsection.php:33
+#: loading-screens/logo/adminsection.php:43
 msgid "Grayscale to color effect"
 msgstr ""
 
-#: loading-screens/logo/adminsection.php:40
+#: loading-screens/logo/adminsection.php:50
 msgid "Apply blink effect"
 msgstr ""
 
-#: loading-screens/logo/adminsection.php:81
+#: loading-screens/logo/adminsection.php:91
 msgid "or select one of follows"
+msgstr ""
+
+#: loading-screens/logo/adminsection.php:109
+msgid "Width x Height"
+msgstr ""
+
+#: loading-screens/logo/adminsection.php:112
+msgid "Height"
 msgstr ""
 
 #: loading-screens/text/adminsection.php:5

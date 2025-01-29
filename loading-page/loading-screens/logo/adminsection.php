@@ -1,10 +1,12 @@
-<tr id="loading_screen_logo" style="display:none;" class="lp_ls_section">
+<tr style="display:none;" class="lp_ls_section loading_screen_logo">
 	<th style="font-weight: bold; color: green;"><?php esc_html_e( 'Select the logo image (or any other image)', 'loading-page' ); ?></th>
 	<td>
 	<?php
 		$loading_page_logo_path      = '';
 		$loading_page_logo_grayscale = 1;
 		$loading_page_logo_blink     = 0;
+		$loading_page_logo_width     = '';
+		$loading_page_logo_height    = '';
 
 	if (
 			isset( $loading_page_options['lp_ls'] ) &&
@@ -20,6 +22,14 @@
 
 		if ( isset( $loading_page_options['lp_ls']['logo']['blink'] ) ) {
 			$loading_page_logo_blink = @intval( $loading_page_options['lp_ls']['logo']['blink'] );
+		}
+
+		if ( isset( $loading_page_options['lp_ls']['logo']['width'] ) ) {
+			$loading_page_logo_width = is_numeric( $loading_page_options['lp_ls']['logo']['width'] ) ? intval( $loading_page_options['lp_ls']['logo']['width'] ) : '';
+		}
+
+		if ( isset( $loading_page_options['lp_ls']['logo']['height'] ) ) {
+			$loading_page_logo_height = is_numeric( $loading_page_options['lp_ls']['logo']['height'] ) ? intval( $loading_page_options['lp_ls']['logo']['height'] ) : '';
 		}
 	}
 	?>
@@ -93,5 +103,12 @@
 	}
 	?>
 	<div style="clear:both;"></div>
+	</td>
+</tr>
+<tr style="display:none;" class="lp_ls_section loading_screen_logo">
+	<th><?php esc_html_e( 'Width x Height', 'loading-page' ); ?></th>
+	<td>
+		( <input type="number" name="lp_ls[logo][width]" value="<?php print esc_attr( $loading_page_logo_width ); ?>" placeholder="<?php esc_attr_e( 'Width', 'loading-page' ); ?>"> px ) x
+		( <input type="number" name="lp_ls[logo][height]" value="<?php print esc_attr( $loading_page_logo_height ); ?>" placeholder="<?php esc_attr_e( 'Height', 'loading-page' ); ?>"> px )
 	</td>
 </tr>
