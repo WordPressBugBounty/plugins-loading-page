@@ -98,8 +98,9 @@ var cp_loadingpage = cp_loadingpage || {};
 		jQuery('body').addClass('lp-'+animName);
     };
 
-    lp['onLoadComplete'] = function()
+    lp['onLoadComplete'] = function(force)
 	{
+		force = force || false;
 		var time = (typeof lp_close_btn == 'undefined' && 'additionalSeconds' in lp.options && !isNaN(parseFloat(lp.options[ 'additionalSeconds' ])) && isFinite(lp.options[ 'additionalSeconds' ])) ? parseInt(lp.options[ 'additionalSeconds' ]) : 0,
 			complete = function(){
 				jQuery('body').removeClass('lp_loading_screen_body');
@@ -111,7 +112,7 @@ var cp_loadingpage = cp_loadingpage || {};
 				} );
 			};
 
-		if(time) setTimeout(function(){complete();}, time*1000);
+		if(time && !force) setTimeout(function(){complete();}, time*1000);
 		else complete();
     };
 
