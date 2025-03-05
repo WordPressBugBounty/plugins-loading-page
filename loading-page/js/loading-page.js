@@ -105,7 +105,8 @@ var cp_loadingpage = cp_loadingpage || {};
 			complete = function(){
 				jQuery('body').removeClass('lp_loading_screen_body');
 				// jQuery('#loading_page_codeBlock,.lp-close-screen').remove(); // 2025-03-04.
-				jQuery('#loading_page_codeBlock,.lp-close-screen').hide(); 		// 2025-03-04.
+				jQuery('#loading_page_codeBlock').remove(); // 2025-03-04.
+				jQuery('.lp-close-screen').hide(); 		    // 2025-03-04.
 				lp.graphicAction( 'complete', function(){
 					lp.ApplyAnimationToElement(lp.options.pageEffect);
 					lp.options.onComplete();
@@ -184,7 +185,7 @@ var cp_loadingpage = cp_loadingpage || {};
 		if ( jQuery('.lp-screen:visible').length ) return;
         jQuery(document).trigger('loadingScreenShow');
 		if ( jQuery('.lp-screen:hidden').length ) { // 2025-03-04.
-			jQuery('#loading_page_codeBlock,.lp-close-screen,.lp-screen').show();
+			jQuery('.lp-close-screen,.lp-screen').show();
 			return;
 		}
 

@@ -4,7 +4,7 @@ Donate link: http://wordpress.dwbooster.com/content-tools/loading-page
 Tags:loading page,loadin screen,animation,page performance,page effects,performance,render time,wordpress performance,image,images,load,loading,lazy,screen,lazy loading,fade effect,posts,Post,admin,plugin,fullscreen,ads
 Requires at least: 3.0.6
 Tested up to: 6.7
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -253,3 +253,7 @@ A: Please be sure you are using a browser with CSS3 support.
 = 1.2.4 =
 
 * Refines plugin behavior for the loading screen by ensuring the logo is visible whenever a user navigates to another page via links.
+
+= 1.2.5 =
+
+* Fixes a minor issue with code block.
