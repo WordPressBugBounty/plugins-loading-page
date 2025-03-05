@@ -82,8 +82,7 @@ cp_loadingpage.graphics['bar'] = {
 		callback();
 		var me = this;
 		this.attr['overlay'].fadeOut(1000, function () {
-			// me.attr['overlay'].remove();
-			me.attr['overlay'].hide();
+			me.attr['overlay'].remove();
 		});
 	}
 };

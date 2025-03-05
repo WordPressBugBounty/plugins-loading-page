@@ -77,7 +77,7 @@ cp_loadingpage.graphics['logo'] = {
 					me 	= this,
 					wrapper = jQuery('<span style="width:120px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);display: inline-block;" class="lp-logo-wrapper"></span>'),
 					img_url = String( opt[ 'lp_ls' ][ 'logo' ][ 'image' ] ).trim(),
-					img = jQuery('<img id="lp_ls_img" src="'+img_url+'"  alt="" style="cursor:pointer;margin-left:50% !important;transform:translateX(-50%) !important;max-width:initial;'+logo_width+logo_height+(this.grayscale ? '-webkit-filter:grayscale(100%);filter:grayscale(100%);' : '')+'" class="'+(this.blink ? 'lp_blink' : '')+'" />');
+					img = jQuery('<img id="lp_ls_img" src="'+img_url+'"  alt="" style="cursor:pointer;margin-left:50% !important;transform:translateX(-50%) !important;max-width:initial;'+logo_width+logo_height+(this.grayscale ? '-webkit-filter:grayscale(100%);filter:grayscale(100%);' : '')+'" class="'+(this.blink ? 'lp_blink' : '')+'" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\';" />');
 
 				img.on('click',cp_loadingpage.destroyLoader);
 				wrapper.append(img).appendTo( me.attr[ 'overlay' ] );
@@ -107,8 +107,7 @@ cp_loadingpage.graphics['logo'] = {
 		callback();
 		var me = this;
 		this.attr['overlay'].fadeOut(1000, function () {
-			// me.attr['overlay'].remove();
-			me.attr['overlay'].hide();
+			me.attr['overlay'].remove();
 		});
 	}
 };
