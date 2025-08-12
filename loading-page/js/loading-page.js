@@ -24,6 +24,7 @@ var cp_loadingpage = cp_loadingpage || {};
 			// callback for loading page complete
 			onComplete: function () {
 				if(typeof window['afterCompleteLoadingScreen'] != 'undefined') window['afterCompleteLoadingScreen']();
+				try { window.dispatchEvent(new Event('resize')); } catch(err) {}
 			}
 		},
 		images = [],
