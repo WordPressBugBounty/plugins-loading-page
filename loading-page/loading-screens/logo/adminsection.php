@@ -35,7 +35,7 @@
 	?>
 	<input aria-label="<?php esc_attr_e( 'Logo image', 'loading-page' ); ?>" type='text' name="lp_ls[logo][image]" id="lp_ls_logo_image" value="<?php
 		print esc_attr( $loading_page_logo_path );
-	?>" /><input type="button" value="<?php esc_attr_e( 'Browse', 'loading-page' ); ?>" onclick="loading_page_selected_image('lp_ls[logo][image]');" />&nbsp;&nbsp;&nbsp;
+	?>" /><input type="button" value="<?php esc_attr_e( 'Browse', 'loading-page' ); ?>" onclick="loading_page_selected_image('lp_ls[logo][image]');" class="button-secondary" style="margin-left:10px;" />&nbsp;&nbsp;&nbsp;
 	<input type="checkbox" id="lp_ls_logo_grayscale" <?php if ( $loading_page_logo_grayscale ) {
 		print 'CHECKED';} ?>>
 	<input type="hidden" name="lp_ls[logo][grayscale]" value="<?php print esc_attr( $loading_page_logo_grayscale ); ?>">

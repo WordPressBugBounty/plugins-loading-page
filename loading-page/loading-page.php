@@ -3,7 +3,7 @@
 Plugin Name: Loading Page
 Plugin URI: http://wordpress.dwbooster.com/content-tools/loading-page
 Description: Loading Page plugin performs a pre-loading of images on your website and displays a loading progress screen with percentage of completion. Once everything is loaded, the screen disappears.
-Version: 1.2.7
+Version: 1.2.8
 Author: CodePeople
 Author URI: http://wordpress.dwbooster.com/content-tools/loading-page
 License: GPLv2
@@ -353,7 +353,7 @@ if ( ! function_exists( 'loading_page_admin_resources' ) ) {
 			wp_enqueue_style( 'thickbox' );
 			wp_enqueue_script( 'thickbox' );
 
-			wp_enqueue_script( 'lp-admin-script', LOADING_PAGE_PLUGIN_URL . '/js/loading-page-admin.js', array( 'jquery', 'thickbox', 'farbtastic' ), 'free-1.2.7', true );
+			wp_enqueue_script( 'lp-admin-script', LOADING_PAGE_PLUGIN_URL . '/js/loading-page-admin.js', array( 'jquery', 'thickbox', 'farbtastic' ), 'free-1.2.8', true );
 		}
 	} // End loading_page_admin_resources.
 }
@@ -592,7 +592,7 @@ if ( ! function_exists( 'loading_page_enqueue_scripts' ) ) {
 		$op             = loading_page_get_settings();
 		$loading_screen = loading_page_loading_screen();
 		if ( $loading_screen && ! empty( $op['from_trigger'] ) ) {
-			wp_enqueue_script( 'codepeople-loading-page-link-script', LOADING_PAGE_PLUGIN_URL . '/js/links.min.js', array( 'jquery' ), 'free-1.2.7', false );
+			wp_enqueue_script( 'codepeople-loading-page-link-script', LOADING_PAGE_PLUGIN_URL . '/js/links.min.js', array( 'jquery' ), 'free-1.2.8', false );
 		}
 
 		if ( $loading_screen ) {
@@ -631,21 +631,21 @@ if ( ! function_exists( 'loading_page_enqueue_scripts' ) ) {
 
 			$required = array( 'jquery' );
 			wp_enqueue_script( 'jquery' );
-			wp_enqueue_style( 'codepeople-loading-page-style', LOADING_PAGE_PLUGIN_URL . '/css/loading-page.css', array(), 'free-1.2.7', false );
-			wp_enqueue_style( 'codepeople-loading-page-style-effect', LOADING_PAGE_PLUGIN_URL . '/css/loading-page' . ( ( 'none' !== $op['pageEffect'] ) ? '-' . $op['pageEffect'] : '' ) . '.css', array(), 'free-1.2.7', false );
+			wp_enqueue_style( 'codepeople-loading-page-style', LOADING_PAGE_PLUGIN_URL . '/css/loading-page.css', array(), 'free-1.2.8', false );
+			wp_enqueue_style( 'codepeople-loading-page-style-effect', LOADING_PAGE_PLUGIN_URL . '/css/loading-page' . ( ( 'none' !== $op['pageEffect'] ) ? '-' . $op['pageEffect'] : '' ) . '.css', array(), 'free-1.2.8', false );
 
 			$s = loading_page_get_screen( $op['loading_screen'] );
 			if ( $s ) {
 				if ( ! empty( $s['style'] ) ) {
-					wp_enqueue_style( 'codepeople-loading-page-style-' . $s['id'], $s['style'], array(), 'free-1.2.7', false );
+					wp_enqueue_style( 'codepeople-loading-page-style-' . $s['id'], $s['style'], array(), 'free-1.2.8', false );
 				}
 
 				if ( ! empty( $s['script'] ) ) {
-					wp_enqueue_script( 'codepeople-loading-page-script-' . $s['id'], $s['script'], array( 'jquery' ), 'free-1.2.7', false );
+					wp_enqueue_script( 'codepeople-loading-page-script-' . $s['id'], $s['script'], array( 'jquery' ), 'free-1.2.8', false );
 					$required[] = 'codepeople-loading-page-script-' . $s['id'];
 				}
 			}
-			wp_enqueue_script( 'codepeople-loading-page-script', LOADING_PAGE_PLUGIN_URL . '/js/loading-page.min.js', $required, 'free-1.2.7', false );
+			wp_enqueue_script( 'codepeople-loading-page-script', LOADING_PAGE_PLUGIN_URL . '/js/loading-page.min.js', $required, 'free-1.2.8', false );
 			if ( function_exists( 'wp_add_inline_script' ) ) {
 				wp_add_inline_script( 'codepeople-loading-page-script', 'loading_page_settings=' . wp_json_encode( $loading_page_settings ) . ';', 'before' );
 			} else {
@@ -1069,7 +1069,7 @@ if ( ! function_exists( 'loading_page_settings_page' ) ) {
 									include_once $screen['adminsection'];
 								}
 								if ( ! empty( $screen['adminscript'] ) ) {
-									wp_enqueue_script( $screen['adminscript'], $screen['adminscript'], array(), 'free-1.2.7', true );
+									wp_enqueue_script( $screen['adminscript'], $screen['adminscript'], array(), 'free-1.2.8', true );
 								}
 							}
 							?>
@@ -1112,7 +1112,7 @@ if ( ! function_exists( 'loading_page_settings_page' ) ) {
 									if ( isset( $loading_page_options['backgroundImage'] ) ) {
 										print( esc_attr( $loading_page_options['backgroundImage'] ) );}
 									?>" />
-									<input type="button" value="Browse" onclick="loading_page_selected_image('lp_backgroundImage');" />
+									<input type="button" value="Browse" onclick="loading_page_selected_image('lp_backgroundImage');" class="button-secondary" style="margin-left:10px;" />
 									<select aria-label="<?php esc_attr_e( 'Background position', 'loading-page' ); ?>" id="lp_backgroundRepeat" name="lp_backgroundRepeat">
 										<option value="repeat"
 										<?php
@@ -1230,7 +1230,7 @@ if ( ! function_exists( 'loading_page_settings_page' ) ) {
 							<tr>
 								<th><?php esc_html_e( 'Select the image to load by default', 'loading-page' ); ?></th>
 								<td>
-									<input aria-label="<?php esc_attr_e( 'Image to load by default', 'loading-page' ); ?>" type="text" DISABLED /><input type="button" value="Browse" DISABLED />
+									<input aria-label="<?php esc_attr_e( 'Image to load by default', 'loading-page' ); ?>" type="text" DISABLED /><input type="button" value="Browse" DISABLED class="button-secondary" style="margin-left:10px;" />
 								</td>
 							</tr>
 							<tr>
