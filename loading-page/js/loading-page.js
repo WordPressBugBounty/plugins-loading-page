@@ -81,8 +81,9 @@ var cp_loadingpage = cp_loadingpage || {};
     };
 
 	// Methods used in loading page
-    lp['graphicAction'] = function(action, params)
+    lp['graphicAction'] = function(action)
 	{
+		let params = Array.prototype.slice.call(arguments, 1);
         if(
 			'graphic' in lp.options &&
 			'graphics' in lp &&
@@ -90,7 +91,10 @@ var cp_loadingpage = cp_loadingpage || {};
 			lp.graphics[lp.options.graphic].created
 		)
         {
-            lp.graphics[lp.options.graphic][action](params);
+			 lp.graphics[lp.options.graphic][action].apply(
+				lp.graphics[lp.options.graphic],
+				Array.isArray(params) ? params : [params]
+			);
         }
     };
 
@@ -110,7 +114,7 @@ var cp_loadingpage = cp_loadingpage || {};
 					lp.ApplyAnimationToElement(lp.options.pageEffect);
 					lp.options.onComplete();
 					jQuery(document).trigger('loadingScreenCompleted');
-				} );
+				}, lp.options['fadeOutDuration']);
 			};
 
 		if(time && !force) setTimeout(function(){complete();}, time*1000);

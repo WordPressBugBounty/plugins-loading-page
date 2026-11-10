@@ -119,10 +119,12 @@ cp_loadingpage.graphics['text'] = {
 		}
     },
 
-	complete : function(callback){
+	complete : function(callback, fadeOutDuration){
+		if(fadeOutDuration === undefined) fadeOutDuration = 1;
+		fadeOutDuration *= 1000;
 		callback();
 		var me = this;
-		this.attr['overlay'].fadeOut(1000, function () {
+		this.attr['overlay'].fadeOut(fadeOutDuration, function () {
 			me.attr['overlay'].remove();
 		});
 	}

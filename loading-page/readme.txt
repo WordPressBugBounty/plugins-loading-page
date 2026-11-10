@@ -4,7 +4,7 @@ Donate link: http://wordpress.dwbooster.com/content-tools/loading-page
 Tags:loading page,loadin screen,animation,page performance,page effects,performance,render time,wordpress performance,image,images,load,loading,lazy,screen,lazy loading,fade effect,posts,Post,admin,plugin,fullscreen,ads
 Requires at least: 3.0.6
 Tested up to: 7.1
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -266,3 +266,7 @@ A: Please be sure you are using a browser with CSS3 support.
 = 1.2.8 =
 
 * Improves the WordPress 7.0 integration.
+
+= 1.2.9 =
+
+* Allows configuring the fade-out duration from the plugin settings.
